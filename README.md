@@ -1,4 +1,4 @@
-# PHP DB Connection
+# PHP DB(mysqli) Connection
 Guide repo.
 
 ### Assignment:
