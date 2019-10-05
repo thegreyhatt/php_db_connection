@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Add New User</title>
-</head>
-<body>
-	<?php require 'links.html';  ?>
+<?php require "header.php" ?>
+<?php require "nav.php" ?>
 	
+ <main role="main" class="container mt-5" style="padding-top: 20px;">
+<div class="row">
+	<div class="col-md-6 offset-md-3">
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
@@ -30,19 +28,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 }
 ?>
+		<form action="add-new.php" method="post">
+			<label>Username</label>
+			<input type="text" name="username" class="form-control">
+			<br>
+			<label>First Name</label>
+			<input type="text" name="first_name" class="form-control">
+			<br>
+			<label>Last Name</label>
+			<input type="text" name="last_name" class="form-control">
+			<br>
+			<input type="submit" value="Add New User" >
+		</form>
+	</div>
+</div>
+</main>
 
-<form action="add-new.php" method="post">
-	<label>Username</label>
-	<input type="text" name="username">
-	<br>
-	<label>First Name</label>
-	<input type="text" name="first_name">
-	<br>
-	<label>Last Name</label>
-	<input type="text" name="last_name">
-	<br>
-	<input type="submit" value="Add New User" >
-</form>
-
-</body>
-</html>
+<?php require "footer.php" ?>

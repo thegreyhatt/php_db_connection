@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Users List</title>
-</head>
-<body>
+<?php require "header.php" ?>
 
-<?php require 'links.html';  ?>
+<?php require 'nav.php';  ?>
 
 <br>
 <?php
@@ -17,26 +12,34 @@ $result = $conn->query($sql);
 ?>
 
 <?php if ($result->num_rows > 0) { ?>
-<table border="1">
-	<thead>
-		<td>ID</td>
-		<td>Username</td>
-		<td>First name</td>
-		<td>Last name</td>
-	</thead>
-	<tbody>
-		<?php
-			 while($row = $result->fetch_assoc()) {
-		       echo "<tr>";
-		       echo "<td>".$row['id']."</td>";
-		       echo "<td>".$row['username']."</td>";
-		       echo "<td>".$row['first_name']."</td>";
-		       echo "<td>".$row['last_name']."</td>";
-		       echo "</tr>";
-		    }
-		?>
-	</tbody>
-</table>
+	<main role="main" class="container mt-5" style="padding-top: 20px;">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<td>ID</td>
+						<td>Username</td>
+						<td>First name</td>
+						<td>Last name</td>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+						 while($row = $result->fetch_assoc()) {
+					       echo "<tr>";
+					       echo "<td>".$row['id']."</td>";
+					       echo "<td>".$row['username']."</td>";
+					       echo "<td>".$row['first_name']."</td>";
+					       echo "<td>".$row['last_name']."</td>";
+					       echo "</tr>";
+					    }
+					?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</main>
 
 <?php
 	} else { 
@@ -44,5 +47,4 @@ $result = $conn->query($sql);
 	$conn->close();
 	}
 ?>
-</body>
-</html>
+<?php require 'footer.php';  ?>
